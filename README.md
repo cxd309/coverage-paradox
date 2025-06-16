@@ -1,2 +1,3 @@
 # coverage-paradox
-A typescript based demonstration of the coverage paradox
+
+Demonstration notebook for the coverage paradox
