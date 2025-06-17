@@ -1,20 +1,20 @@
 {
-  "name": "transport-micro-simulator",
+  "name": "coverage-paradox",
   "version": "0.1",
-  "description": "TS based micro transport sim",
-  "main": "docs/js/TransportMicroSimulator.js",
+  "description": "TS based demonstration of coverage paradox",
+  "main": "docs/js/coverage-paradox.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cxd309/transport-micro-simulator.git"
+    "url": "git+https://github.com/cxd309/coverage-paradox.git"
   },
   "author": "cxd309",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/cxd309/gh-pages-emulator/issues"
+    "url": "https://github.com/cxd309/coverage-paradox/issues"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
