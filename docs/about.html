@@ -40,12 +40,246 @@
           </li>
         </ul>
       </header>
-      <h1></h1>
+      <h1>Coverage Paradox: About</h1>
+      <p>
+        This demonstrator was original developed alongside a
+        <a
+          href="https://www.researchgate.net/publication/388186545_The_potential_of_dynamic_skip-stop_to_address_the_coverage_paradox_in_urban_transport_through_superconducting_maglev_rail_technology"
+          >paper</a
+        >
+        for the
+        <a href="https://mkon.nu/maglev_2024">MagLev 2024 Conference</a> in
+        Malmö, Sweden. It was built in a Marimo Python notebook however has now
+        been developed to be hosted on GitHub Pages, this current repository.
+        The original repository is still available at
+        <a
+          href="https://github.com/cxd309/MagLev-2024-Coverage-Paradox-Notebook"
+          >github.com/cxd309/MagLev-2024-Coverage-Paradox-Notebook</a
+        >.
+      </p>
+
+      <h2>Purpose</h2>
+      <p>
+        The Coverage Paradox, is a phenomenon of urban rail transport systems
+        due to the structure of the system concept. The purpose of this is to
+        illustrate the coverage paradox with an interactive notebook where users
+        can change the parameters of a rail system and see how it has an impact
+        on the door-to-door journey time showing the behaviour of the coverage
+        paradox.
+      </p>
+
+      <h2>Usage</h2>
+
+      <h2>Methodology and Assumptions</h2>
+      <p>
+        The aim of this is to calculate the door-to-door journey time for a
+        passenger travelling on an urban rail transport system.
+      </p>
+      <p>The overall formula is:</p>
+      <p><span class="math inline">\(T_j = 2T_a + T_w + T_v\)</span></p>
+      <p>Where:</p>
+      <ul>
+        <li>
+          <span class="math inline">\(T_j\)</span>
+          <strong>Average door-to-door journey time</strong>, the average total
+          time to travel from origin to destination.
+        </li>
+        <li>
+          <span class="math inline">\(T_a\)</span> <strong>Access time</strong>,
+          the time spend walking to or from the transit vehicle.
+        </li>
+        <li>
+          <span class="math inline">\(T_w\)</span> <strong>Wait time</strong>,
+          the time elapsed between arriving at the transit vehicle and it
+          departing on the journey.
+        </li>
+        <li>
+          <span class="math inline">\(T_v\)</span>
+          <strong>Vehicle time</strong>, the time spent travelling in the
+          transit vehicle.
+        </li>
+      </ul>
+
+      <h3 id="variable-input-parameters">Variable Input Parameters</h3>
+      <ul>
+        <li>
+          <span class="math inline">\(S_j\)</span>
+          <strong>Door-to-door journey distance</strong> (<span
+            class="math inline"
+            >\(km\)</span
+          >), the total distance to be travelled
+        </li>
+        <li>
+          <span class="math inline">\(tphpd\)</span>
+          <strong>Trains per hour per direction</strong>
+        </li>
+        <li>
+          <span class="math inline">\(V_{v-max}\)</span>
+          <strong>Maximum Line Speed</strong> (<span class="math inline"
+            >\(m/s\)</span
+          >), maximum speed of vehicle
+        </li>
+        <li>
+          <span class="math inline">\(A_{v-acc}\)</span>
+          <strong>Mean Acceleration</strong> (<span class="math inline"
+            >\(m/s^2\)</span
+          >), the rate of acceleration of the vehicle from stationary to
+          <span class="math inline">\(V_{v-max}\)</span>
+        </li>
+        <li>
+          <span class="math inline">\(A_{v-dcc}\)</span>
+          <strong>Mean Deceleration</strong> (<span class="math inline"
+            >\(m/s^2\)</span
+          >), the rate of deceleration of the vehicle from
+          <span class="math inline">\(V_{v-max}\)</span> to stationary
+        </li>
+        <li>
+          <span class="math inline">\(T_{dwell}\)</span>
+          <strong>Dwell Time</strong> (<span class="math inline">\(mins\)</span
+          >), the time spent stationary dwelling at each station
+        </li>
+        <li>
+          <span class="math inline">\(V_{walk}\)</span>
+          <strong>Average walking speed</strong> (<span class="math inline"
+            >\(km/h\)</span
+          >), average speed for passenger walking
+        </li>
+      </ul>
+
+      <h3 id="calculations">Calculations</h3>
+      <p>The calculations are then:</p>
+      <p>
+        <span class="math inline"
+          >\(S_{is} = \frac{S_j}{N_{stations}-0.5}\)</span
+        >
+      </p>
+      <p>
+        <span class="math inline"
+          >\(T_{is} = \frac{S_{is}-S_{acc-dcc}}{V_{v-max}} + T_{acc-dcc}\)</span
+        >
+      </p>
+      <p>
+        <span class="math inline"
+          >\(T_v = T_{is}(N_{stations}-1) + T_{dwell}(N_{stations}-2)\)</span
+        >
+      </p>
+      <p>
+        <span class="math inline">\(T_a = \frac{S_{is}/4}{V_{walk}}\)</span>
+      </p>
+      <p><span class="math inline">\(T_{w} = \frac{T_{hw}}{2}\)</span></p>
+      <p>Where:</p>
+      <ul>
+        <li>
+          <span class="math inline">\(N_{stations}\)</span>
+          <strong>Number of stations</strong>
+        </li>
+        <li>
+          <span class="math inline">\(S_{is}\)</span>
+          <strong>interstation distance</strong>, distance between each station
+        </li>
+        <li>
+          <span class="math inline">\(T_{is}\)</span>
+          <strong>intersation time</strong>, time taken for vehicle to travel
+          between each station
+        </li>
+        <li>
+          <span class="math inline">\(S_{acc-dcc}\)</span>
+          <strong>acceleration deceleration distance</strong>, distance taken to
+          accelerate and decelerate from
+          <span class="math inline">\(V_{v-max}\)</span>
+        </li>
+        <li>
+          <span class="math inline">\(T_{acc-dcc}\)</span>
+          <strong>acceleration deceleration time</strong>, time taken to
+          accelerate and decelerate from
+          <span class="math inline">\(V_{v-max}\)</span>
+        </li>
+        <li>
+          <span class="math inline">\(T_{hw}\)</span>
+          <strong>vehicle headway</strong>
+        </li>
+      </ul>
+
+      <h3 id="assumptions">Assumptions</h3>
+      <p>
+        For this demonstration it is fundementally assumed that the journey
+        exists in 1-dimensional space.
+      </p>
+      <p>
+        It is assumed that the population distribution is homogeneous and
+        therefore the interstation distance is constant along the line. From
+        this it is also derrived that the average distance for any user’s origin
+        and destination from a station is a quarter of the interstation
+        distance.
+      </p>
+      <p>
+        There is no account taken of time taken to walk from the station
+        enterance to the platform or impact of crowds at peak times. This would
+        normally add some time and would include time to scan tickets and other
+        station activities.
+      </p>
+      <p>
+        It is assumed that passengers arrive randomly and do not plan to arrive
+        for a train at a specific time. Therefore on average they will have to
+        wait half of the headway between two trains to board their next service.
+      </p>
+      <p>
+        It is assumed that the rate of acceleration and deceleration of trains
+        is constant. A more standard method is the Davis equation but this was
+        not chosen to be used in this case to keep the user interface simple.
+      </p>
+      <p>
+        It is assumed that vehicles travel with a constant headway between all
+        services. Any fluctuations or delay is not included in this
+        calculations.
+      </p>
+      <p>
+        It is also possible to set the dwell time greater than would be possible
+        with the headway. This is a limitation and could be addressed in future
+        revisions of the programme.
+      </p>
+
+      <h2 id="acknowledgements">Acknowledgements</h2>
+      <p>
+        This research has been funded by a PhD scholarship from the University
+        of Birmingham.
+      </p>
+      <p>
+        Many thanks go to my supervisor Dr Marcelo Blumenfeld for their
+        guidance, support and input on this project.
+      </p>
+
+      <h2 id="license">License</h2>
+      <p>coverage-paradox Copyright (C) 2024 Chris Davis</p>
+      <p>
+        This program is free software: you can redistribute it and/or modify it
+        under the terms of the GNU General Public License as published by the
+        Free Software Foundation, either version 3 of the License, or (at your
+        option) any later version.
+      </p>
+      <p>
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+        Public License for more details.
+      </p>
+      <p>
+        You should have received a copy of the GNU General Public License along
+        with this program. If not, see
+        <a href="http://www.gnu.org/licenses/" class="uri"
+          >http://www.gnu.org/licenses/</a
+        >.
+      </p>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
+    ></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
     <script src="./js/about.js" type="module"></script>
   </body>
