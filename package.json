@@ -2,7 +2,7 @@
   "name": "coverage-paradox",
   "version": "0.1",
   "description": "TS based demonstration of coverage paradox",
-  "main": "docs/js/coverage-paradox.js",
+  "main": "docs/js/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
@@ -17,6 +17,7 @@
     "url": "https://github.com/cxd309/coverage-paradox/issues"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.41",
     "@types/node": "^22.15.21",
     "typescript": "^5.8.3"
   }
