@@ -1,5 +1,5 @@
 {
-  "name": "coverage-paradox",
+  "name": "coverage-paradox-demo",
   "version": "0.1",
   "description": "TS based demonstration of coverage paradox",
   "main": "docs/js/index.js",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cxd309/coverage-paradox.git"
+    "url": "git+https://github.com/cxd309/coverage-paradox-demo.git"
   },
   "author": "cxd309",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/cxd309/coverage-paradox/issues"
+    "url": "https://github.com/cxd309/coverage-paradox-demo/issues"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.41",
